@@ -25,6 +25,8 @@ center_hole_dia = 22.0
 with BuildPart() as ex2:
     Box(length, width, thickness)
     Cylinder(radius=center_hole_dia / 2, height=thickness, mode=Mode.SUBTRACT)
+
+ex2.part
 # %% [markdown]
 """
 # 2. Plate with Hole(Variation 1)
@@ -37,6 +39,8 @@ with BuildPart() as ex2b:
     Box(length, width, thickness)
     with Locations(Plane.XY.offset(thickness/2)):
         Hole(radius=center_hole_dia / 2)
+
+ex2b.part
 
 
 # %%

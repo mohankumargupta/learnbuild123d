@@ -11,6 +11,17 @@
             "presentation": {
                 "reveal": "never",
             }
+        },
+        {
+            "label": "JupyText Sync",
+            "type": "shell",
+            "command": "jupyter execute --inplace --allow-errors --kernel_name=python3 introductory_example2b.ipynb",
+            "group": {
+                "kind": "build",
+            },
+            "presentation": {
+                "reveal": "never",
+            }
         }
     ]
 }
