@@ -7,7 +7,10 @@ name = "learnbuild123"
 version = "0.0.1"
 requires-python = ">=3.10"
 
-dependencies = ["build123d", "notebook"]
+dependencies = ["build123d", "notebook", "nbclient", "jupytext"]
 
 [tool.setuptools]
 py-modules = []
+
+[tool.jupytext]
+formats = "ipynb,py:percent"
