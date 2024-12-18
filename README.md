@@ -1,5 +1,21 @@
 # Maintainer's Section
 
+# UV and jupyterlab
+
+```sh
+
+python -m ipykernel install --user --name=myenv --display-name "Python (myenv)"  
+
+uv run poe 
+
+jupyter labextension enable jupyterlab-jupytext
+
+uv run --with jupyter jupyter lab
+```
+
+need to install extension in jupyterlab for jupytext
+
+
 # Example 1
 
 [Live Example](https://nbviewer.org/github/mohankumargupta/learnbuild123d/blob/maintainer/notebooks/introductory_example1.ipynb)
