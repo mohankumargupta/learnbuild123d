@@ -33,3 +33,9 @@ need to install extension in jupyterlab for jupytext
 [Live Example](https://nbviewer.org/github/mohankumargupta/learnbuild123d/blob/maintainer/notebooks/introductory_example2b.ipynb)
 
 [Source Code](https://github.com/mohankumargupta/learnbuild123d/blob/maintainer/notebooks/introductory_example2b.ipynb)
+
+# Example test
+
+[Live Example](https://nbviewer.org/github/mohankumargupta/learnbuild123d/blob/maintainer/notebooks/boo.ipynb)
+
+[Source Code](https://github.com/mohankumargupta/learnbuild123d/blob/maintainer/notebooks/boo.ipynb)
