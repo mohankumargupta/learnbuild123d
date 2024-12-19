@@ -13,7 +13,6 @@ with BuildPart() as footrest_builder:
             l2 = Line(l1@0, (0,0))
             l3 = PolarLine(l1@1, length=7, direction=Vector(-70,-50).normalized())
             l4 = PolarLine(l2@1, length=7, direction=Vector(70,50).normalized())
-            #l5 = SagittaArc(l3@1, l4@1, sagitta=-5.531)
             l5 = RadiusArc(l3@1, l4@1,radius=-120.)
         face = make_face()
     extrude(amount=LENGTH)
