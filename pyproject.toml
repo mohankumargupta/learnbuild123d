@@ -16,6 +16,7 @@ py-modules = []
 formats = "ipynb,py:percent"
 
 [dependency-groups]
-dev = [
-    "poethepoet>=0.31.1",
-]
+dev = ["poethepoet>=0.31.1"]
+
+[tool.poe.tasks]
+jupytext = "jupytext --sync notebooks/*.py"
