@@ -1,5 +1,6 @@
 # %%
 from build123d import *
+from math import atan2
 
 LENGTH = 220
 WIDTH = 70
@@ -10,8 +11,8 @@ with BuildPart() as footrest_builder:
         with BuildLine() as side_lines:
             l1 = Line((0,50),(70,50))
             l2 = Line(l1@0, (0,0))
-            l3 = PolarLine(l1@1, length=7, direction=(-1.0,-50./70), length_mode=LengthMode.DIAGONAL)
-            l4 = PolarLine(l2@1, length=7, direction=(1.0,50./70), length_mode=LengthMode.DIAGONAL)
+            l3 = PolarLine(l1@1, length=7, direction=Vector(-70,-50).normalized())
+            l4 = PolarLine(l2@1, length=7, direction=Vector(70,50).normalized())
             #l5 = SagittaArc(l3@1, l4@1, sagitta=-5.531)
             l5 = RadiusArc(l3@1, l4@1,radius=-120.)
         face = make_face()
@@ -25,3 +26,9 @@ print(footrest.volume)
 export_step(footrest, "footrest.step")
 print(face.area)
 print(f"center: x: {l5.arc_center.X} y: {l5.arc_center.Y}")
+l3vertices = l3.vertices()
+print(l3vertices)
+
+# %%
+normalizedvector = Vector(-70,-50).normalized()
+print(normalizedvector)
