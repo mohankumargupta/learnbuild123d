@@ -64,11 +64,29 @@ with BuildPart() as bottom_builder:
         Rectangle(220,70, align=(Align.MAX, Align.MIN))
         with Locations((70-220,70)):
             Triangle(a=70, b=70, C=90, rotation=-90, align=(Align.MIN, Align.MAX), mode=Mode.SUBTRACT)
-    extrude(amount=100)
+    extrude(amount=50)
 
 bottom_part = bottom_builder.part
 bottom_part
 # %%
 assert 1==1
+
+
+# %%
+
+with BuildPart() as text_builder:
+    with BuildSketch() as text_sketch:
+        Text("Hello", font_size=30., align=(Align.CENTER, Align.CENTER))
+    extrude(amount=2)    
+
+
+with BuildPart() as footrest_builder:
+    add(side_builder)
+    add(bottom_builder)
+    Sphere(radius=20)
+    add(text_builder)
+
+footrest = footrest_builder.part
+footrest
 
 
