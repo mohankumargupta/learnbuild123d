@@ -17,18 +17,3 @@ footrest = footrest_builder.part
 footrest
 # %%
 print(f"Area of face: {side_sketch.face().area}")
-
-# %%
-with BuildSketch(Plane.XZ) as side_sketch2:
-    with BuildLine() as lines2:
-        pts = [
-            (0,0),
-            (0,50),
-            (-220,50),
-            (-170,0)
-        ]
-        Polyline(pts, close=True)
-    face = make_face()
-
-print(f"Area of face: {side_sketch2.face().area}")
-
