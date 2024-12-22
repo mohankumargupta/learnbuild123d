@@ -12,6 +12,6 @@ If you create a virtual environment using vscode, then just use the pyproject.to
 
 The advantage of jupyter notebook is that you can share with others and the notebooks are interactive with the assistance of nbviewer
 
-[Live Example](https://github.com/mohankumargupta/learnbuild123d/blob/6ca91bf9894dde712f1c083672d11d2e256b7ce7/helloworld.ipynb)
+[Live Example](https://nbviewer.org/github/mohankumargupta/learnbuild123d/blob/6ca91bf9894dde712f1c083672d11d2e256b7ce7/helloworld.ipynb)
 
-[Introductory Examples](https://github.com/mohankumargupta/learnbuild123d/blob/6ca91bf9894dde712f1c083672d11d2e256b7ce7/introductory_examples_builder.ipynb)
+[Introductory Examples](https://nbviewer.org/github/mohankumargupta/learnbuild123d/blob/6ca91bf9894dde712f1c083672d11d2e256b7ce7/introductory_examples_builder.ipynb)
