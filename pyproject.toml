@@ -7,7 +7,19 @@ name = "learnbuild123"
 version = "0.0.1"
 requires-python = ">=3.10"
 
-dependencies = ["build123d", "notebook", "nbclient", "jupytext"]
+dependencies = [
+    "build123d",
+    "notebook",
+    "nbclient",
+    "jupytext",
+    "vtk==9.3.1",
+    "scooby",
+    "matplotlib",
+    "pooch",
+    "itkwidgets",
+    "trame",
+    "ipywidgets",
+]
 
 [tool.setuptools]
 py-modules = []
@@ -20,3 +32,4 @@ dev = ["poethepoet>=0.31.1"]
 
 [tool.poe.tasks]
 jupytext = "jupytext --sync notebooks/*.py"
+pyvista = "pip install pyvista --no-deps"

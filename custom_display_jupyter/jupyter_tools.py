@@ -25,7 +25,7 @@ license:
 
 # pylint: disable=no-name-in-module
 from json import dumps
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Tuple
 from IPython.display import Javascript
 from vtkmodules.vtkIOXML import vtkXMLPolyDataWriter
 
@@ -39,6 +39,17 @@ function render(data, parent_element, ratio){{
     const renderWindow = vtk.Rendering.Core.vtkRenderWindow.newInstance();
     const renderer = vtk.Rendering.Core.vtkRenderer.newInstance({{ background: [1, 1, 1 ] }});
     renderWindow.addRenderer(renderer);
+
+        const axesActor = vtk.Rendering.Core.AxesActor.newInstance();
+    axes.setTotalLength(100, 100, 100); // Length of X, Y, Z axes
+axes.setShaftType('line');          // Line style for axes
+axes.setAxisLabels(['X', 'Y', 'Z']); // Axis labels
+
+// Add the axes to the renderer
+renderer.addActor(axes);
+
+
+    /*
 
     // iterate over all children children
     for (var el of data){{
@@ -75,6 +86,51 @@ function render(data, parent_element, ratio){{
 
     }};
 
+
+    */
+
+    // Create a red line
+/*
+const linePolyData = vtkPolyData.newInstance();
+linePolyData.getPoints().setData(points, 3); // 3 components per point (x, y, z)
+linePolyData.getLines().setData(lines);
+
+const lineMapper = vtkMapper.newInstance();
+const lineActor = vtkActor.newInstance();
+
+lineMapper.setInputData(linePolyData);
+lineActor.setMapper(lineMapper);
+
+// Set the line color to red
+lineActor.getProperty().setColor(1, 0, 0);
+
+// Add the line to the renderer
+renderer.addActor(lineActor);    
+*/
+/*
+
+const linePoints = vtkPoints.newInstance();
+linePoints.setData([-100, 0, 0, 100, 0, 0]); // Line endpoints
+const lineCells = vtkCellArray.newInstance();
+lineCells.insertNextCell([0, 1]); // Connect the two points
+
+const linePolyData = vtkPolyData.newInstance();
+linePolyData.setPoints(linePoints);
+linePolyData.setLines(lineCells);
+
+const lineMapper = vtkMapper.newInstance();
+const lineActor = vtkActor.newInstance();
+
+lineMapper.setInputData(linePolyData);
+lineActor.setMapper(lineMapper);
+
+// Set the line color to red
+lineActor.getProperty().setColor(1, 0, 0);
+
+// Add the line to the renderer
+renderer.addActor(lineActor);
+*/
+    
     renderer.resetCamera();
 
     const openglRenderWindow = vtk.Rendering.OpenGL.vtkRenderWindow.newInstance();
@@ -157,9 +213,13 @@ new Promise(
   {{
     if (typeof(require) !== "undefined" ){{
         require.config({{
-         "paths": {{"vtk": "https://unpkg.com/vtk"}},
+         "paths": {{
+         "vtk": "https://unpkg.com/vtk",
+         "AxesActor": "https://unpkg.com/vtk.js/Sources/Rendering/Core/AxesActor"
+         
+         }},
         }});
-        require(["vtk"], resolve, reject);
+        require(["vtk", "AxesActor"], resolve, reject);
     }} else if ( typeof(vtk) === "undefined" ){{
         var script = document.createElement("script");
     	script.onload = resolve;
@@ -203,8 +263,7 @@ def to_vtkpoly_string(
 
     return writer.GetOutputString()
 
-
-def display(shape: Any) -> Javascript:
+def display_patched(shape: Any, show_axes=False, color: List[float] = DEFAULT_COLOR) -> Javascript:
     """display
 
     Args:
