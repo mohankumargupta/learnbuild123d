@@ -84,3 +84,4 @@ with BuildPart() as final_part:
     add(ramp_part)
 
 final_part.part
+print(f"\npart mass = {final_part.part.volume*DENSITY:0.2f}")   
