@@ -65,6 +65,7 @@ function render(data, parent_element, ratio, shape_id){{
         parent_element.appendChild(container);
         dims = parent_element.getBoundingClientRect();
     }}else{{
+    console.log(parent_element);
         container = parent_element.append("<div id=" + shape_id + "/>").children("div:last-child").get(0);
         dims = parent_element.get(0).getBoundingClientRect();
     }};
